@@ -10,3 +10,12 @@ export interface ListResponse<T> {
     pagination: PaginationParams;
 }
 // lưu ý khi ta GET all dữ liệu thì không có pagination -> ta cần get  baseUrl/something?_limit=10&_page=1 thì mới có data, pagination
+
+export interface ListParams {
+    _page: number;
+    _limit: number;
+    _sort: string;
+    _order: 'asc' | 'desc'
+
+    [key: string]: any;  // những thằng khác mình chưa biết
+}
