@@ -54,4 +54,4 @@ export const selectIsLogging = (state: any) => state.auth.logging;
 const authReducer = authSlice.reducer;
 export default authReducer;
 
-// authActions.login.type nếu muốn lấy type của action
+
