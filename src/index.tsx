@@ -1,22 +1,24 @@
+import CssBaseline from '@mui/material/CssBaseline';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
+import { HistoryRouter } from 'redux-first-history/rr6';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { history, store } from './app/store';
 import './index.css';
+import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import CssBaseline from '@mui/material/CssBaseline';
+
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <HistoryRouter history={history}>
         <CssBaseline />
         <App />
-      </BrowserRouter>
+      </HistoryRouter>
     </Provider>
   </React.StrictMode>
 );

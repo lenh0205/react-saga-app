@@ -9,7 +9,7 @@ import { authActions } from 'features/auth/authSlice';
 import { useAppDispatch } from 'app/hooks';
 
 function App() {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     cityApi.getAll().then((response) => console.log(response));
@@ -17,9 +17,7 @@ function App() {
 
   return (
     <>
-      <Button variant="contained" color="primary"
-        onClick={() => dispatch(authActions.logout())}
-      >
+      <Button variant="contained" color="primary" onClick={() => dispatch(authActions.logout())}>
         Logout
       </Button>
       <Routes>
