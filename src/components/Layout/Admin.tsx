@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { Header, Sidebar } from 'components/Common';
+import { Outlet } from 'react-router-dom';
 export interface AdminLayoutProps {}
 
 export const AdminLayout = (props: AdminLayoutProps) => {
@@ -36,7 +37,7 @@ export const AdminLayout = (props: AdminLayoutProps) => {
           paddingX: 3
         }}
       >
-        Main
+        <Outlet/>
       </Box>
     </Box>
   );
