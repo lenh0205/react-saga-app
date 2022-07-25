@@ -3,18 +3,22 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { useAppDispatch } from 'app/hooks';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { authActions } from '../authSlice';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const LoginPage = () => {
   const dispatch = useAppDispatch();
+  const isLogging = useAppSelector((state) => state.auth.logging);
 
   const handleLoginClick = () => {
-    // Todo: Get username + password from login form 
-    dispatch(authActions.login({
-      username: '',
-      password: ''
-    }))
+    // Todo: Get username + password from login form
+    dispatch(
+      authActions.login({
+        username: '',
+        password: '',
+      })
+    );
   };
 
   return (
@@ -38,6 +42,7 @@ const LoginPage = () => {
         </Typography>
         <Box mt={4}>
           <Button fullWidth variant="contained" color="primary" onClick={handleLoginClick}>
+            {isLogging && <CircularProgress size={20} color="secondary" />} &nbsp;
             Fake Login
           </Button>
         </Box>
